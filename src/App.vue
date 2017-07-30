@@ -4,6 +4,8 @@
       <h1>My Tasks</h1>
     </div>
 
+
+
 <div style="flex: 1 0 auto;">
 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
 <div style="flex-basis: 40%;"><h3 >Tasks to keep in mind</h3>
@@ -28,19 +30,30 @@
 </div>
 
 
-<div style="margin-top:100px; border-top: 1px solid #68ad8b; display: flex; justify-content: center;">
+<div style="margin-top:100px; border-top: 1px solid #68ad8b; display: flex; justify-content: flex-end;">
   <h4>{{ tareasCompletadas.length }}/{{tareas.length}} are done!</h4>
 
   </div>
 
 <div style="border-top: 1px solid #68ad8b; display: flex; justify-content: center;">
 
-   <form v-on:submit.prevent="agregarTarea" style="display: flex; align-items: center; flex-direction: column;">
-     <h3>Add Tarea </h3>
-        <input type="text" placeholder="Your task here" v-model="nuevaTarea.titulo">
-         <label>Hight Priority?</label><input type="checkbox" checked="" placeholder="Prioridad" v-model="nuevaTarea.prioridad">
+   <form v-on:submit.prevent="agregarTarea" style="display: flex; align-items: center; flex-direction: column; flex-basis:60%;">
+       <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-38" v-model="nuevaTarea.titulo">
+					<label class="input__label input__label--isao" for="input-38" data-content="Task">
+						<span class="input__label-content input__label-content--isao">Add a task</span>
+					</label>
+				</span>
+        <p>
+    <input type="checkbox" id="test1" v-model="nuevaTarea.prioridad"/>
+    <label for="test1">High Priority</label>
+  </p>
+
         <input type="submit" value="Enviar tarea">
         </form>
+
+
+
 </div>
 </div>
 
