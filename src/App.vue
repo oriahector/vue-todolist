@@ -7,7 +7,7 @@
 
 <div style="flex: 1 0 auto;">
 <div style="display: flex; justify-content: space-around; margin-top: 20px; flex-wrap:wrap;">
-<div style="flex-basis: 80%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;"><h3 >Tasks to keep in mind</h3>
+<div style="flex-basis: 80%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;"><h3><i class="fa fa-sun-o"></i>Tasks to keep in mind</h3>
         <ul style="display: flex; flex-direction: column;">
             <li v-for="tarea in tareas"  style="font-weight: bold" :class="{completado: tarea.completado}">
 <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
@@ -19,7 +19,7 @@
         </ul>
         </div>
 
-        <div style="flex-basis: 40%; flex-basis: 80%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;"><h3>Priority Tasks</h3>
+        <div style="flex-basis: 40%; flex-basis: 80%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;"><h3><i class="fa fa-sun-o"></i>Priority Tasks</h3>
             <ul style="display: flex; flex-direction: column;">
             <li v-for="tarea in tareasConPrioridad"  style="font-weight: bold;" :class="{completado: tarea.completado}">
 <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
