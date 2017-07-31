@@ -37,6 +37,7 @@ main {
 p {
     margin: 0;
     line-height: 20px;
+    color: $white;
 }
 
 h1 {
@@ -54,9 +55,9 @@ h2 {
 h3 {
     color: $main;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
-    margin: 20px 0;
+    margin: 50px 0 15px 0;
 }
 
 h4 {
@@ -83,8 +84,10 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    color: $white;
     li {
         margin-top: 10px;
+        font-size: 1.5em;
     }
 }
 
@@ -1141,7 +1144,7 @@ ul {
     padding: 0.75em 0.1em 0.25em;
     width: 100%;
     background: transparent;
-    color: $subtitle;
+    color: $white;
 }
 
 .input__label--isao {
@@ -1333,6 +1336,9 @@ label:hover:before {
     width: 100%;
     color: $white;
     font-size: 16px;
+    &:focus {
+        outline: none;
+    }
 }
 
 .input {
