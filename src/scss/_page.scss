@@ -62,9 +62,9 @@ h3 {
 
 h4 {
     color: $gray;
-    font-size: 14px;
+    font-size: 18px;
     margin: 0;
-    padding: 20px;
+    padding: 40px;
 }
 
 a {
@@ -1161,7 +1161,7 @@ ul {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 4px;
+    height: 1px;
     background: #dadada;
     -webkit-transform: scale3d(1, 0.4, 1);
     transform: scale3d(1, 0.4, 1);
@@ -1312,7 +1312,7 @@ ul {
 /* hover style just for information */
 
 label:hover:before {
-    border: 2px solid #4778d9!important;
+    border: 1px solid #4778d9!important;
 }
 
 //custom
@@ -1326,7 +1326,7 @@ label:hover:before {
 
 //button submit
 [type="submit"] {
-    background-color: $main;
+    background-color: rgba(104, 173, 139, 0.4);
     border: none;
     display: block;
     margin: 35px auto;
@@ -1339,9 +1339,35 @@ label:hover:before {
     &:focus {
         outline: none;
     }
+    &:hover {
+        background-color: $main;
+        transition: 0.3s;
+    }
 }
 
 .input {
     max-width: 100%;
     width: 100%;
+}
+
+i {
+    cursor: pointer;
+    &:hover {
+        color: #F44336;
+    }
+}
+
+label,
+input {
+    font-weight: bold;
+}
+
+li>span:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+label:hover:before {
+    border-color: $main !important;
 }

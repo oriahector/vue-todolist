@@ -2,7 +2,7 @@
   <div id="app" style="display: flex; flex-direction:column; background-color: rgba(0, 0, 0, 0.7); height: 100%;width: 100%;">
 
   <div style="border-top: 1px solid #68ad8b; display: flex; justify-content: flex-end;">
-      <h4>{{ tareasCompletadas.length }}/{{tareas.length}} are done!</h4>
+      <h4>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h4>
   </div>
 
 <div style="flex: 1 0 auto;">
@@ -11,9 +11,11 @@
         <ul style="display: flex; flex-direction: column;">
             <li v-for="tarea in tareas"  style="font-weight: bold" :class="{completado: tarea.completado}">
 <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
-                  <span @click="completarTarea(tarea)">{{ tarea.titulo }}</span>
+                  <span @click="completarTarea(tarea)">{{ tarea.titulo }} </span>
 
+                   <span ><a target="_blank" v-bind:href="tarea.url">{{ tarea.url }} </a></span>
             </li>
+
         </ul>
         </div>
 
@@ -38,6 +40,12 @@
 					<input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.titulo" onClick="return empty()" >
 					<label class="input__label input__label--isao" for="input-38" data-content="Task">
 						<span class="input__label-content input__label-content--isao">Add a task</span>
+					</label>
+				</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.url" onClick="return empty()" >
+					<label class="input__label input__label--isao" for="input-38" data-content="Task">
+						<span class="input__label-content input__label-content--isao">Url</span>
 					</label>
 				</span>
         <p>
@@ -89,6 +97,7 @@ export default {
     return {
       nuevaTarea: {
           titulo: '',
+          url: '',
           prioridad: false,
           completado: false
       }
@@ -98,6 +107,7 @@ export default {
     agregarTarea: function(){
       tareasRef.push(this.nuevaTarea);
       this.nuevaTarea.titulo = '';
+      this.nuevaTarea.url = '';
       this.nuevaTarea.completado = false;
       this.nuevaTarea.prioridad = false;
     },
@@ -143,6 +153,8 @@ body {
 .completado {
     text-decoration: line-through;
     color: $main;
+    opacity: 0.3;
+    transition: 0.3s;
 }
 
 
