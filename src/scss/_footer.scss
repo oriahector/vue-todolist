@@ -1,7 +1,6 @@
 .footer {
     height: 70px;
-    background: rgba(104, 173, 139, 0.4);
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     display: flex;
     color: $white;
@@ -19,8 +18,4 @@
     }
 }
 
-@media (max-width: 850px) {
-    .footer {
-        margin: 0;
-    }
-}
+@media (max-width: 850px) {}

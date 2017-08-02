@@ -50,9 +50,9 @@ h2 {
 h3 {
     color: $main;
     font-weight: bold;
-    font-size: 30px;
     margin: 0;
     margin: 50px 0 15px 0;
+    font-size: 1.4em;
 }
 
 h4 {
@@ -79,10 +79,20 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
     color: $white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     li {
+        flex-basis: 32.4%;
         margin-top: 10px;
-        font-size: 1.5em;
+        font-size: 1.2em;
+        border-radius: 14px;
+        padding: 1em;
+        margin: 0.3em;
+        background-color: rgba(256, 256, 256, 0.4);
+        box-shadow: 1px 4px 5px black;
     }
 }
 
@@ -356,10 +366,12 @@ label:hover:before {
 }
 
 i {
+    opacity: 0.5;
     cursor: pointer;
     &:hover {
         color: #F44336;
         transition: 0.3s;
+        opacity: 0.8;
     }
 }
 
@@ -380,7 +392,12 @@ label:hover:before {
 
 .completado {
     text-decoration: line-through;
-    color: $main;
-    opacity: 0.3;
+    opacity: 0.5;
     transition: 0.3s;
+}
+
+@media (max-width: 850px) {
+    li {
+        flex-basis: 100% !important;
+    }
 }

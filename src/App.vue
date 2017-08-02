@@ -3,31 +3,26 @@
         <div style="border-top: 1px solid #68ad8b; display: flex; justify-content: flex-end;">
             <h4>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h4>
         </div>
-        <div style="flex: 1 0 auto;">
+        <div style="flex: 1 0 auto; min-height: 100vh;">
             <div style="display: flex; justify-content: space-around; margin-top: 20px; flex-wrap:wrap;">
-                <div style="flex-basis: 80%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;">
+                <div style=" width: 100%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; margin: 2em;">
                     <h3>
-                        Tasks to keep in mind</h3>
-                    <ul style="display: flex; flex-direction: column;">
-                        <li v-for="tarea in tareas" style="font-weight: bold" :class="{completado: tarea.completado}">
-                            <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
+                        What I need to get done:</h3>
+                    <ul>
+                        <li v-for="tarea in tareas" :class="{completado: tarea.completado}">
                             <span @click="completarTarea(tarea)">{{ tarea.titulo }} </span>
-                            <span>
-                                <a target="_blank" v-bind:href="tarea.url">{{ tarea.url }} </a>
+                            <span style=" display: flex; justify-content: flex-end; width:100%;margin-top: 1em;">
+                              <span v-if="tarea.prioridad">
+                               <i style="opacity: 1;"  class="fa f fa-bolt"></i>
+                               </span>
+                            <a style="padding: 0;" target="_blank" v-bind:href="tarea.url"><i class="fa f fa-link"></i></a>
+                             <i class="fa f fa-location-arrow"></i>
+                            <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
                             </span>
                         </li>
                     </ul>
                 </div>
-                <div style="flex-basis: 40%; flex-basis: 80%; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;">
-                    <h3>
-                        <i class="fa fa-bolt"></i>Priority Tasks</h3>
-                    <ul style="display: flex; flex-direction: column;">
-                        <li v-for="tarea in tareasConPrioridad" style="font-weight: bold;" :class="{completado: tarea.completado}">
-                            <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
-                            <span @click="completarTarea(tarea)"> {{ tarea.titulo }}</span>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
             <div style="margin-top:100px;8ad8b; display: flex; justify-content: center;">
                 <form v-on:submit.prevent="agregarTarea" style="display: flex; align-items: center; flex-direction: column; flex-basis:60%;">
@@ -45,7 +40,7 @@
                     </span>
                     <p>
                         <input type="checkbox" id="test1" v-model="nuevaTarea.prioridad" />
-                        <label for="test1">High Priority</label>
+                        <label for="test1"><i  class="fa f fa-bolt"></i>High Priority</label>
                     </p>
                     <input type="submit" value="Save Task">
                 </form>
@@ -53,9 +48,9 @@
         </div>
         <footer class="footer" style=" flex-shrink: 0;">
             <a class="footer__copyright" href="http://hectororia.com">Made with
-                <i class="fa fa-heart"></i> by Héctor Martínez</a>
+                <i class="fa fa-heart"></i> by oria_hector</a>
             <a class="footer__copyright" href="../contact.php">
-                <i class="fa fa-envelope-open-o"></i> Contact with the developer</a>
+                <i class="fa fa-envelope-open-o"></i> Contact me!</a>
         </footer>
     </div>
 </template>
