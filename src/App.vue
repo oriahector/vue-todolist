@@ -1,7 +1,8 @@
 <template>
     <div id="app">
         <div class="header">
-            <h4>{{tareasCompletadas.length}}/{{tareas.length}} are done!      <p>&#x1F638</p></h4>
+            <h4>{{tareasCompletadas.length}}/{{tareas.length}} are done!
+            </h4>
         </div>
         <main>
             <div class="cards">
@@ -12,7 +13,6 @@
                         <div class="cards__settings">
                             <span class="cards__settings__priority" v-if="tarea.prioridad">
                                 <i style="opacity: 1;" class="fa f fa-bolt"></i>
-
                             </span>
                             <a class="cards__settings__url" target="_blank" v-if="tarea.url" v-bind:href="tarea.url">
                                 <i class="fa f fa-link"></i>
@@ -25,29 +25,35 @@
                     </li>
                 </ul>
             </div>
-            <div class="form">
-                <form v-on:submit.prevent="agregarTarea" style="display: flex; align-items: center; flex-direction: column; flex-basis:60%;">
-                    <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.titulo" onClick="return empty()">
-                        <label class="input__label input__label--isao" for="input-38" data-content="Task">
-                            <span class="input__label-content input__label-content--isao">Add task</span>
-                        </label>
-                    </span>
-                    <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.url" onClick="return empty()">
-                        <label class="input__label input__label--isao" for="input-38" data-content="Url">
-                            <span class="input__label-content input__label-content--isao">Add Url</span>
-                        </label>
-                    </span>
-                    <p>
-                        <input type="checkbox" id="test1" v-model="nuevaTarea.prioridad" />
-                        <label for="test1">
-                            <i class="fa fa-bolt"></i>High Priority</label>
-                    </p>
-                    <input type="submit" value="Save Task">
-                </form>
-            </div>
+            <form class="form" v-on:submit.prevent="agregarTarea" style="display: flex; align-items: center; flex-direction: column; flex-basis:60%;">
+                <span class="input input--isao">
+                    <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.titulo" onClick="return empty()">
+                    <label class="input__label input__label--isao" for="input-38" data-content="Task">
+                        <span class="input__label-content input__label-content--isao">Add task</span>
+                    </label>
+                </span>
+                <span class="input input--isao">
+                    <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.url" onClick="return empty()">
+                    <label class="input__label input__label--isao" for="input-38" data-content="Url">
+                        <span class="input__label-content input__label-content--isao">Add Url</span>
+                    </label>
+                </span>
+                <p>
+                    <input type="checkbox" id="test1" v-model="nuevaTarea.prioridad" />
+                    <label for="test1">
+                        <i class="fa fa-bolt"></i>High Priority
+                    </label>
+                     <select>
+    <option value="" disabled="disabled" selected="selected">Select a name</option>
+    <option value="1">Berto</option>
+    <option value="2">Berta</option>
+</select>
+                </p>
 
+
+
+                <input type="submit" value="Save Task">
+            </form>
         </main>
         <footer class="footer" style=" flex-shrink: 0;">
             <a class="footer__copyright" href="http://hectororia.com">Made with
@@ -119,8 +125,8 @@ export default {
         }
     }
 }
-</script>
 
+</script>
 <style lang="scss" scoped>
 body {
     margin: 0;
@@ -136,7 +142,14 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     height: 100%;
     width: 100%;
+    align-items: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
 @import 'scss/main.scss';
 </style>
