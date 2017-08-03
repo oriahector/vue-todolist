@@ -1,9 +1,9 @@
 .footer {
-    height: 70px;
     justify-content: flex-end;
     align-items: center;
     display: flex;
     color: $white;
+    padding: 1.4em;
     &__copyright {
         text-decoration: none;
         font-size: 14px;

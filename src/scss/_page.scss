@@ -100,7 +100,6 @@ ul {
     position: relative;
     z-index: 1;
     display: inline-block;
-    margin: 1em;
     max-width: 350px;
     width: calc(100% - 2em);
     vertical-align: top;
@@ -363,16 +362,6 @@ label:hover:before {
 .input {
     max-width: 100%;
     width: 100%;
-}
-
-i {
-    opacity: 0.5;
-    cursor: pointer;
-    &:hover {
-        color: #F44336;
-        transition: 0.3s;
-        opacity: 0.8;
-    }
 }
 
 label,
