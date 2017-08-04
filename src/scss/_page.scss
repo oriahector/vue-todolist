@@ -29,6 +29,10 @@ body {
     flex-wrap: wrap;
 }
 
+main {
+    padding: 0 4em;
+}
+
 p {
     margin: 0;
     line-height: 20px;
@@ -50,8 +54,7 @@ h2 {
 h3 {
     color: $main;
     font-weight: bold;
-    margin: 0;
-    margin: 50px 0 15px 0;
+    margin: 1em 0;
     font-size: 1.4em;
 }
 
@@ -59,7 +62,7 @@ h4 {
     color: $gray;
     font-size: 18px;
     margin: 0;
-    padding: 40px;
+    padding: 30px;
 }
 
 a {
@@ -73,27 +76,6 @@ a {
 
 i {
     padding-right: 10px;
-}
-
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    color: $white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    li {
-        flex-basis: 32.4%;
-        margin-top: 10px;
-        font-size: 1.2em;
-        border-radius: 14px;
-        padding: 1em;
-        margin: 0.3em;
-        background-color: rgba(256, 256, 256, 0.4);
-        box-shadow: 1px 4px 5px black;
-    }
 }
 
 .input {
@@ -343,9 +325,9 @@ label:hover:before {
     background-color: rgba(104, 173, 139, 0.4);
     border: none;
     display: block;
-    margin: 35px 0 150px 0;
     padding: 15px 0px;
     border-radius: 10px;
+    margin-bottom: 2em;
     cursor: pointer;
     width: 100%;
     color: $white;
@@ -364,11 +346,6 @@ label:hover:before {
     width: 100%;
 }
 
-label,
-input {
-    font-weight: bold;
-}
-
 li>span:hover {
     opacity: 0.5;
     cursor: pointer;
@@ -380,13 +357,15 @@ label:hover:before {
 }
 
 .completado {
-    text-decoration: line-through;
+    >span {
+        text-decoration: line-through;
+    }
     opacity: 0.5;
     transition: 0.3s;
 }
 
-@media (max-width: 850px) {
-    li {
-        flex-basis: 100% !important;
+@media (max-width: 650px) {
+    main {
+        padding: 0 1em;
     }
 }
