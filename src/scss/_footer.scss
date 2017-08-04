@@ -3,19 +3,12 @@
     justify-content: flex-end;
     align-items: center;
     display: flex;
-    color: $white;
-    padding: 5em 1em 0.5em 1.4em;
+    padding: 5em 1em 0 1.4em;
     flex-wrap: wrap;
     &__copyright {
-        text-decoration: none;
-        font-size: 14px;
-        padding-right: 10px;
-        color: $white;
+        margin: 0 2em 2em 0;
         i:first-child {
             padding-right: 1px;
-        }
-        i:first-child {
-            font-size: 14px;
         }
     }
 }
