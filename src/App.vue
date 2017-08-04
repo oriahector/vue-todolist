@@ -11,6 +11,12 @@
                     <li v-for="tarea in tareas" :class="{completado: tarea.completado}">
                         <span @click="completarTarea(tarea)">{{ tarea.titulo }} </span>
                         <div class="cards__settings">
+                            <span v-if="tarea.usuario == 'Berto'">
+                                &#x1F42F;
+                            </span>
+                            <span v-if="tarea.usuario == 'Berta'">
+                                &#x1F431;
+                            </span>
                             <span class="cards__settings__priority" v-if="tarea.prioridad">
                                 <i style="opacity: 1;" class="fa f fa-bolt"></i>
                             </span>
@@ -43,14 +49,18 @@
                     <label for="test1">
                         <i class="fa fa-bolt"></i>High Priority
                     </label>
-                     <select>
-    <option value="" disabled="disabled" selected="selected">Select a name</option>
-    <option value="1">Berto</option>
-    <option value="2">Berta</option>
-</select>
+                     <div class="select-style">
+       <select v-model="nuevaTarea.usuario">
+   <option v-bind="berto" selected>&#x1F42F;</option>
+   <option v-bind="berta">  &#x1F437;</option>
+ </select>
+
+
+
+
+
+</div>
                 </p>
-
-
 
                 <input type="submit" value="Save Task">
             </form>
@@ -146,10 +156,11 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
+
 @import 'scss/main.scss';
 </style>
