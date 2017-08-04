@@ -1,359 +1,57 @@
-html {
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-html,
-body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    user-select: none;
-    justify-content: center;
-    margin: 0px;
-    height: 100vh
-}
-
-body {
-    font-family: 'PT Sans', sans-serif;
-    color: $copy;
-    font-weight: 400;
-    font-size: 14px;
-    padding: 0;
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: left;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $gray;
+    font-size: 16px;
+    width: 100%;
 }
 
 main {
     padding: 0 4em;
-}
-
-p {
-    margin: 0;
-    line-height: 20px;
-    color: $white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    min-height: 100vh;
 }
 
 h1 {
-    color: $white;
-    font-size: 46px;
-    margin: 0;
-    padding: 20px;
+    color: $main;
+    margin: 1em 0;
+    font-size: 1.6em;
+    font-weight: normal;
 }
 
 h2 {
-    color: $white;
-    font-size: 20px;
-}
-
-h3 {
-    color: $main;
-    font-weight: bold;
-    margin: 1em 0;
-    font-size: 1.4em;
-}
-
-h4 {
-    color: $gray;
     font-size: 18px;
     margin: 0;
     padding: 30px;
+    font-weight: normal;
 }
 
 a {
-    color: $main;
-    padding: 10px;
+    color: $gray;
     text-decoration: none;
     &:hover {
-        opacity: 0.5;
-    }
-}
-
-i {
-    padding-right: 10px;
-}
-
-.input {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    max-width: 350px;
-    width: calc(100% - 2em);
-    vertical-align: top;
-}
-
-.input__field {
-    position: relative;
-    display: block;
-    float: right;
-    padding: 0.8em;
-    width: 60%;
-    border: none;
-    border-radius: 0;
-    background: #f0f0f0;
-    color: #aaa;
-    font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    -webkit-appearance: none;
-    /* for box shadows to show on iOS */
-}
-
-.input__field:focus {
-    outline: none;
-}
-
-.input__label {
-    display: inline-block;
-    float: right;
-    padding: 0 1em;
-    width: 40%;
-    color: #6a7989;
-    font-weight: bold;
-    font-size: 70.25%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.input__label-content {
-    position: relative;
-    display: block;
-    padding: 1.6em 0;
-    width: 100%;
-}
-
-
-/* Isao */
-
-.input__field--isao {
-    z-index: 10;
-    padding: 0.75em 0.1em 0.25em;
-    width: 100%;
-    background: transparent;
-    color: $white;
-}
-
-.input__label--isao {
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-    width: 100%;
-    color: #dadada;
-    text-align: left;
-}
-
-.input__label--isao::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 1px;
-    background: #dadada;
-    -webkit-transform: scale3d(1, 0.4, 1);
-    transform: scale3d(1, 0.4, 1);
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
-    transition: transform 0.3s, background-color 0.3s;
-    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-.input__label--isao::after {
-    content: attr(data-content);
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.75em 0.15em;
-    color: $main;
-    opacity: 0;
-    -webkit-transform: translate3d(0, 50%, 0);
-    transform: translate3d(0, 50%, 0);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-    pointer-events: none;
-}
-
-.input__field--isao:focus+.input__label--isao::before {
-    background-color: $main;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-}
-
-.input__field--isao:focus+.input__label--isao {
-    pointer-events: none;
-}
-
-.input__field--isao:focus+.input__label--isao::after {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.input__label-content--isao {
-    padding: 0.75em 0.15em;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-.input__field--isao:focus+.input__label--isao .input__label-content--isao {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -50%, 0);
-    transform: translate3d(0, -50%, 0);
-}
-
-// checkboxes
-
-/* Base for label styling */
-
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    position: absolute;
-    left: -9999px;
-}
-
-[type="checkbox"]:not(:checked)+label,
-[type="checkbox"]:checked+label {
-    position: relative;
-    padding-left: 1.95em;
-    cursor: pointer;
-}
-
-
-/* checkbox aspect */
-
-[type="checkbox"]:not(:checked)+label:before,
-[type="checkbox"]:checked+label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.25em;
-    height: 1.25em;
-    border: 2px solid #ccc;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
-}
-
-
-/* checked mark aspect */
-
-[type="checkbox"]:not(:checked)+label:after,
-[type="checkbox"]:checked+label:after {
-    content: '✔';
-    position: absolute;
-    top: .1em;
-    left: .3em;
-    font-size: 1.3em;
-    line-height: 0.8;
-    color: #09ad7e;
-    transition: all .2s;
-}
-
-
-/* checked mark aspect changes */
-
-[type="checkbox"]:not(:checked)+label:after {
-    opacity: 0;
-    transform: scale(0);
-}
-
-[type="checkbox"]:checked+label:after {
-    opacity: 1;
-    transform: scale(1);
-}
-
-
-/* disabled checkbox */
-
-[type="checkbox"]:disabled:not(:checked)+label:before,
-[type="checkbox"]:disabled:checked+label:before {
-    box-shadow: none;
-    border-color: #bbb;
-    background-color: #ddd;
-}
-
-[type="checkbox"]:disabled:checked+label:after {
-    color: #999;
-}
-
-[type="checkbox"]:disabled+label {
-    color: #aaa;
-}
-
-
-/* accessibility */
-
-[type="checkbox"]:checked:focus+label:before,
-[type="checkbox"]:not(:checked):focus+label:before {
-    border: 1px solid $main;
-}
-
-
-/* hover style just for information */
-
-label:hover:before {
-    border: 1px solid #4778d9!important;
-}
-
-//custom
-.input__label {
-    font-size: 16px;
-}
-
-.input__field {
-    font-size: 18px;
-}
-
-//button submit
-[type="submit"] {
-    background-color: rgba(104, 173, 139, 0.4);
-    border: none;
-    display: block;
-    padding: 15px 0px;
-    border-radius: 10px;
-    margin-bottom: 2em;
-    cursor: pointer;
-    width: 100%;
-    color: $white;
-    font-size: 16px;
-    &:focus {
-        outline: none;
-    }
-    &:hover {
-        background-color: $main;
+        color: $main;
         transition: 0.3s;
     }
 }
 
-.input {
-    max-width: 100%;
-    width: 100%;
+span {
+    margin-right: 10px;
 }
 
-li>span:hover {
-    opacity: 0.5;
+i {
     cursor: pointer;
-    transition: 0.3s;
-}
-
-label:hover:before {
-    border-color: $main !important;
+    &:hover {
+        transition: 0.3s;
+    }
 }
 
 .completado {

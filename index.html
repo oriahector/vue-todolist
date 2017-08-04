@@ -43,10 +43,9 @@
     
     body {
         margin: 0;
-        background: url(https://source.unsplash.com/user/oria_hector) no-repeat center center fixed;
+        background: url(https://source.unsplash.com/user/oria_hector) no-repeat center center;
         background-size: cover;
         height: 100%;
-        min-height: 100%;
         display: flex;
     }
     
@@ -55,25 +54,19 @@
         font-family: Avenir;
     }
     
+    #toast-container {
+        left: 12px;
+    }
+    
     #toast-container>div {
         box-shadow: none;
+        width: 140px;
+        border-radius: 10px;
+        opacity: 0.5;
     }
 </style>
 
 <script>
-    var myForm = document.getElementById('validate');
-
-    myFrm.addEventListener('submit', function() {
-        var allInputs = myForm.getElementsByTagName('input');
-
-        for (var i = 0; i < allInputs.length; i++) {
-            var input = allInputs[i];
-
-            if (input.name && !input.value) {
-                input.name = '';
-            }
-        }
-    });
 </script>
 
 </html>
