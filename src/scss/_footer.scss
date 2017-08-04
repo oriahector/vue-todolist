@@ -1,9 +1,11 @@
 .footer {
+    width: 100%;
     justify-content: flex-end;
     align-items: center;
     display: flex;
     color: $white;
-    padding: 1.4em;
+    padding: 5em 1em 0.5em 1.4em;
+    flex-wrap: wrap;
     &__copyright {
         text-decoration: none;
         font-size: 14px;
@@ -13,9 +15,18 @@
             padding-right: 1px;
         }
         i:first-child {
-            font-size: 17px;
+            font-size: 14px;
         }
     }
 }
 
-@media (max-width: 850px) {}
+@media (max-width: 650px) {
+    .footer {
+        &__copyright {
+            font-size: 12px;
+            i:first-child {
+                font-size: 12px;
+            }
+        }
+    }
+}

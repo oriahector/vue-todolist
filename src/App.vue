@@ -11,27 +11,26 @@
                     <li v-for="tarea in tareas" :class="{completado: tarea.completado}">
                         <span @click="completarTarea(tarea)">{{ tarea.titulo }} </span>
                         <div class="cards__settings">
-                            <span v-if="tarea.usuario == 'Berto'">
-                                &#x1F42F;
+                            <span class="cards__settings__user" v-if="tarea.usuario == 'berto'">
+                               <span style="margin-right:10px;">&#x1F42F;</span>
                             </span>
-                            <span v-if="tarea.usuario == 'Berta'">
-                                &#x1F431;
+                            <span class="cards__settings__user" v-if="tarea.usuario == 'berta'">
+                              <span style="margin-right:10px;">&#x1F431;</span>
                             </span>
                             <span class="cards__settings__priority" v-if="tarea.prioridad">
-                                <i style="opacity: 1;" class="fa f fa-bolt"></i>
+                                <i class="fa f fa-bolt"></i>
                             </span>
                             <a class="cards__settings__url" target="_blank" v-if="tarea.url" v-bind:href="tarea.url">
                                 <i class="fa f fa-link"></i>
                             </a>
-                            <span class="cards__settings__geo" v-if="tarea.geo">
-                                <i style="opacity: 1;" class="fa f fa-location-arrow"></i>
+                            <span class="cards__settings__trash">
+                              <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o"></i>
                             </span>
-                            <i v-on:click="borrarTarea(tarea)" class="cards__settings__trash fa fa-trash-o"></i>
                         </div>
                     </li>
                 </ul>
             </div>
-            <form class="form" v-on:submit.prevent="agregarTarea" style="display: flex; align-items: center; flex-direction: column; flex-basis:60%;">
+            <form class="form" v-on:submit.prevent="agregarTarea">
                 <span class="input input--isao">
                     <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.titulo" onClick="return empty()">
                     <label class="input__label input__label--isao" for="input-38" data-content="Task">
@@ -44,24 +43,25 @@
                         <span class="input__label-content input__label-content--isao">Add Url</span>
                     </label>
                 </span>
-                <p>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; align-items: center; height:50px; width: 100%; margin:1em 0;">
+                  <p>
                     <input type="checkbox" id="test1" v-model="nuevaTarea.prioridad" />
                     <label for="test1">
-                        <i class="fa fa-bolt"></i>High Priority
+                        High Priority
                     </label>
-                     <div class="select-style">
-       <select v-model="nuevaTarea.usuario">
-   <option v-bind="berto" selected>&#x1F42F;</option>
-   <option v-bind="berta">  &#x1F437;</option>
- </select>
+                  </p>
 
+                    <div class="select-style" style="margin-right: 1em;">
 
+                        <select v-model="nuevaTarea.usuario">
+                              <option disabled selected value>User</option>
 
-
-
-</div>
-                </p>
-
+                            <option value="berto" selected>&#x1F42F;</option>
+                            <option value="berta">&#x1F437;</option>
+                        </select>
+                    </div>
+                </div>
                 <input type="submit" value="Save Task">
             </form>
         </main>
@@ -104,7 +104,8 @@ export default {
                 titulo: '',
                 url: '',
                 prioridad: false,
-                completado: false
+                completado: false,
+                usuario: ''
             }
         }
     },
@@ -115,13 +116,13 @@ export default {
             this.nuevaTarea.url = '';
             this.nuevaTarea.completado = false;
             this.nuevaTarea.prioridad = false;
+            this.nuevaTarea.usuario = '';
         },
         borrarTarea: function (tarea) {
             tareasRef.child(tarea['.key']).remove();
-            toastr.success("Tarea eliminada");
+            toastr.success("Task deleted");
         },
         completarTarea: function (tarea) {
-
             tareasRef.child(tarea['.key']).child('completado').set(tarea.completado = !tarea.completado);
         }
     },
