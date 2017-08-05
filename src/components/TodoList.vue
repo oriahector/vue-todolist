@@ -1,14 +1,23 @@
 <template>
     <div id="app">
         <div class="header">
-            <h2>{{tareasCompletadas.length}}/{{tareas.length}} are done!
-            </h2>
+            <div class="form__wrapper__user">
+                <label>Filter by:</label>
+                <select v-model="animal">
+                    <option disabled value>Filter</option>
+                    <option value="All" selected>All </option>
+                    <option value="berto">Berto's </option>
+                    <option value="berta">Berta's</option>
+                </select>
+
+            </div>
+            <h2>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h2>
         </div>
         <main>
             <div class="cards">
-                <h1>What I need to get done:</h1>
+                <h1>What we need to get done:</h1>
                 <ul>
-                    <li v-for="tarea in tareas" :class="{completado: tarea.completado}">
+                    <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado}">
                         <span @click="completarTarea(tarea)">{{ tarea.titulo }} </span>
                         <div class="cards__settings">
                             <span class="cards__settings__user" v-if="tarea.usuario == 'berto'" title="Berto">
@@ -32,14 +41,14 @@
             </div>
             <form class="form" v-on:submit.prevent="agregarTarea">
                 <span class="input input--isao">
-                    <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.titulo" onClick="return empty()">
-                    <label class="input__label input__label--isao" for="input-38" data-content="Task">
+                    <input class="input__field input__field--isao" type="text" v-model="nuevaTarea.titulo" onClick="return empty()">
+                    <label class="input__label input__label--isao" data-content="Task">
                         <span class="input__label-content input__label-content--isao">Add task</span>
                     </label>
                 </span>
                 <span class="input input--isao">
-                    <input class="input__field input__field--isao" type="text" id="validate" v-model="nuevaTarea.url" onClick="return empty()">
-                    <label class="input__label input__label--isao" for="input-38" data-content="Url">
+                    <input class="input__field input__field--isao" type="text" v-model="nuevaTarea.url" onClick="return empty()">
+                    <label class="input__label input__label--isao" data-content="Url">
                         <span class="input__label-content input__label-content--isao">Add Url</span>
                     </label>
                 </span>
@@ -52,7 +61,7 @@
                     </span>
                     <div class="form__wrapper__user">
                         <select v-model="nuevaTarea.usuario">
-                            <option disabled selected value>Who?</option>
+                            <option disabled value> Who?</option>
                             <option value="berto" selected>&#x1F42F; Berto </option>
                             <option value="berta">&#x1F437; Berta</option>
                         </select>
@@ -102,7 +111,8 @@ export default {
                 prioridad: false,
                 completado: false,
                 usuario: ''
-            }
+            },
+            animal: "All"
         }
     },
     methods: {
@@ -129,6 +139,21 @@ export default {
 
         tareasConPrioridad() {
             return this.tareas.filter((tarea) => tarea.prioridad);
+        },
+        tareasBerto() {
+            return this.tareas.filter((tarea) => tarea.usuario == 'berto');
+        },
+        tareasBerta() {
+            return this.tareas.filter((tarea) => tarea.usuario == 'berta');
+        },
+
+        tareasFiltradas() {
+            if (this.animal == 'All') {
+                return this.tareas;
+            }
+            else {
+                return this.tareas.filter((tarea) => tarea.usuario == this.animal);
+            }
         }
     }
 }
@@ -137,3 +162,5 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/main.scss';
 </style>
+
+
