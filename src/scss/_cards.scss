@@ -2,23 +2,27 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 1em 3em 1em;
-    width: 100%;
+    width: 80%;
+    h1 {
+        flex-basis: 100%;
+        margin: 10px;
+        text-align: center;
+    }
     ul {
         list-style: none;
-        width: 90%;
+        width: 100%;
         padding: 0;
         color: $white;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
         li {
-            flex-basis: 32%;
-            margin-top: 1.2em;
+            flex-basis: 33%;
             border-radius: 10px;
-            padding: 1em;
+            padding: 1.3em;
             background-color: rgba(256, 256, 256, 0.3);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            margin: 2em 10px 0 10px;
+            flex: 1 0 auto;
         }
     }
     &__settings {
@@ -53,9 +57,11 @@
 
 @media (max-width: 650px) {
     .cards {
+        width: 90%;
         ul {
             li {
                 flex-basis: 100%;
+                margin: 1.2em 0 0 0;
             }
         }
     }
