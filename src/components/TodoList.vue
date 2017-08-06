@@ -6,6 +6,7 @@
                 <select v-model="animal">
                     <option disabled value>Filter</option>
                     <option value="All" selected>&nbsp;&nbsp;&nbsp;&nbsp;All </option>
+                     <option value="prioridad">Priority </option>
                     <option value="berto">Berto's </option>
                     <option value="berta">Berta's</option>
                 </select>
@@ -150,6 +151,9 @@ export default {
         tareasFiltradas() {
             if (this.animal == 'All') {
                 return this.tareas;
+            }
+            else if (this.animal == 'prioridad') {
+                 return this.tareas.filter((tarea) => tarea.prioridad);
             }
             else {
                 return this.tareas.filter((tarea) => tarea.usuario == this.animal);
