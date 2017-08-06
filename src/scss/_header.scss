@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 4em;
     h2 {
         font-weight: bold;
@@ -10,6 +11,6 @@
 
 @media (max-width: 650px) {
     .header {
-        padding: 2em 2em 7em 2em;
+        padding: 2em 2em 3em 2em;
     }
 }
