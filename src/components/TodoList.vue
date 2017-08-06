@@ -5,7 +5,7 @@
                 <label>Filter by:</label>
                 <select v-model="animal">
                     <option disabled value>Filter</option>
-                    <option value="All" selected>All </option>
+                    <option value="All" selected>&nbsp;&nbsp;&nbsp;&nbsp;All </option>
                     <option value="berto">Berto's </option>
                     <option value="berta">Berta's</option>
                 </select>
@@ -61,7 +61,7 @@
                     </span>
                     <div class="form__wrapper__user">
                         <select v-model="nuevaTarea.usuario">
-                            <option disabled value> Who?</option>
+                            <option disabled value>&nbsp;&nbsp;&nbsp;Who?</option>
                             <option value="berto" selected>&#x1F42F; Berto </option>
                             <option value="berta">&#x1F437; Berta</option>
                         </select>
