@@ -74,27 +74,6 @@
     }
 }
 
-.withpriority {
-    background-color: RGBA(252, 192, 30, 0.4) !important;
-    .cards__settings__priority {
-        color: $lightning;
-        opacity: 1;
-    }
-}
-
-.completado {
-    background-color: rgba(104, 173, 139, 0.4) !important;
-    >span {
-        text-decoration: line-through;
-    }
-    opacity: 0.25;
-    transition: 0.3s;
-    span.cards__settings__completed {
-        color: $main;
-        opacity: 1;
-    }
-}
-
 @media (max-width: 1150px) {
     .cards {
         ul {
@@ -118,5 +97,27 @@
                 }
             }
         }
+    }
+}
+
+//States - Priority and completado
+.withpriority {
+    background-color: RGBA(252, 192, 30, 0.4) !important;
+    .cards__settings__priority {
+        color: $lightning;
+        opacity: 1;
+    }
+}
+
+.completado {
+    background-color: rgba(104, 173, 139, 0.4) !important;
+    >span {
+        text-decoration: line-through;
+    }
+    opacity: 0.25;
+    transition: 0.3s;
+    span.cards__settings__completed {
+        color: $main;
+        opacity: 1;
     }
 }
