@@ -57,11 +57,16 @@ i {
 }
 
 .completado {
+    background-color: rgba(104, 173, 139, 0.4) !important;
     >span {
         text-decoration: line-through;
     }
-    opacity: 0.5;
+    opacity: 0.25;
     transition: 0.3s;
+    span.cards__settings__completed {
+        color: $main;
+        opacity: 1;
+    }
 }
 
 @media (max-width: 650px) {
