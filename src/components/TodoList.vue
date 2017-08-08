@@ -19,7 +19,7 @@
                 <h1>What we need to get done:</h1>
                 <ul>
                     <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado}">
-                        <span @click="completarTarea(tarea)">{{ tarea.titulo }} </span>
+                        <span @click="completarTarea(tarea)" contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
                         <div class="cards__settings">
                             <span class="cards__settings__user" v-if="tarea.usuario == 'berto'" title="Berto">
                                 &#x1F42F;
@@ -131,6 +131,9 @@ export default {
         },
         completarTarea: function (tarea) {
             tareasRef.child(tarea['.key']).child('completado').set(tarea.completado = !tarea.completado);
+        },
+         editarTarea: function (event, tarea) {
+            tareasRef.child(tarea['.key']).child('titulo').set(tarea.titulo = event.target.innerHTML);
         }
     },
     computed: {
