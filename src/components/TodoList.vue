@@ -6,9 +6,8 @@
                 <select v-model="animal">
                     <option disabled value>Filter</option>
                     <option value="All" selected>&nbsp;&nbsp;&nbsp;&nbsp;All </option>
-                       <option value="completado">&nbsp;&nbsp;Done</option>
-                     <option value="prioridad">Priority </option>
-
+                    <option value="completado">&nbsp;&nbsp;Done</option>
+                    <option value="prioridad">Priority </option>
                     <option value="berto">Berto's </option>
                     <option value="berta">Berta's</option>
                 </select>
@@ -33,7 +32,7 @@
                                 &#x1F437;
                             </span>
                             <span class="cards__settings__priority">
-                                <i  @click="ponerPrioridad(tarea)" class="fa fa-bolt" title="Priority task"></i>
+                                <i @click="ponerPrioridad(tarea)" class="fa fa-bolt" title="Priority task"></i>
                             </span>
                             <a class="cards__settings__url" target="_blank" v-if="tarea.url" v-bind:href="'http://' + tarea.url">
                                 <i class="fa f fa-link" title="Link"></i>
@@ -137,11 +136,11 @@ export default {
         completarTarea: function (tarea) {
             tareasRef.child(tarea['.key']).child('completado').set(tarea.completado = !tarea.completado);
         },
-         editarTarea: function (event, tarea) {
+        editarTarea: function (event, tarea) {
             tareasRef.child(tarea['.key']).child('titulo').set(tarea.titulo = event.target.innerHTML);
         },
 
-         ponerPrioridad: function (tarea) {
+        ponerPrioridad: function (tarea) {
             tareasRef.child(tarea['.key']).child('prioridad').set(tarea.prioridad = !tarea.prioridad);
         }
     },
@@ -165,10 +164,10 @@ export default {
                 return this.tareas;
             }
             else if (this.animal == 'prioridad') {
-                 return this.tareas.filter((tarea) => tarea.prioridad);
+                return this.tareas.filter((tarea) => tarea.prioridad);
             }
-             else if (this.animal == 'completado') {
-                 return this.tareas.filter((tarea) => tarea.completado);
+            else if (this.animal == 'completado') {
+                return this.tareas.filter((tarea) => tarea.completado);
             }
             else {
                 return this.tareas.filter((tarea) => tarea.usuario == this.animal);
