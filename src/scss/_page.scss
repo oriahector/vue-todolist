@@ -56,14 +56,6 @@ i {
     }
 }
 
-.completado {
-    >span {
-        text-decoration: line-through;
-    }
-    opacity: 0.5;
-    transition: 0.3s;
-}
-
 @media (max-width: 650px) {
     main {
         padding: 0 1em;
