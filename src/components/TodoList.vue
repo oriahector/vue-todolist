@@ -7,6 +7,7 @@
                     <option disabled value>Filter</option>
                     <option value="All" selected>&nbsp;&nbsp;&nbsp;&nbsp;All </option>
                     <option value="completado">&nbsp;&nbsp;Done</option>
+                    <option value="pendiente">Pending</option>
                     <option value="prioridad">Priority </option>
                     <option value="berto">Berto's </option>
                     <option value="berta">Berta's</option>
@@ -17,6 +18,7 @@
         </div>
         <main>
             <div class="cards">
+              <!-- <button @click="ordenar('prioridad')">Por Color</button> -->
                 <h1>What we need to get done:</h1>
                 <ul>
                     <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado, withpriority: tarea.prioridad}">
@@ -103,6 +105,7 @@ let db = app.database();
 
 let tareasRef = db.ref('tareas');
 
+
 export default {
     name: 'app',
     firebase: {
@@ -142,7 +145,15 @@ export default {
 
         ponerPrioridad: function (tarea) {
             tareasRef.child(tarea['.key']).child('prioridad').set(tarea.prioridad = !tarea.prioridad);
-        }
+        },
+
+        //under construction
+        ordenar(key) {
+                tareasRef.orderByChild(key).on('child_added', snapshot => {
+                    console.log(snapshot.key, snapshot.val());
+                });
+            },
+        //End under construction
     },
     computed: {
         tareasCompletadas() {
@@ -169,9 +180,14 @@ export default {
             else if (this.animal == 'completado') {
                 return this.tareas.filter((tarea) => tarea.completado);
             }
+            else if (this.animal == 'pendiente') {
+                return this.tareas.filter((tarea) => tarea.completado == false);
+            }
             else {
                 return this.tareas.filter((tarea) => tarea.usuario == this.animal);
             }
+
+
         }
     }
 }
