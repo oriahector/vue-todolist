@@ -1,16 +1,16 @@
 <template>
     <div id="app">
+      <div class="overlay">
         <div class="header">
             <div class="form__wrapper__user">
                 <label>Filter by:</label>
                 <select v-model="animal">
                     <option disabled value>Filter</option>
-                    <option value="All" selected>&nbsp;&nbsp;&nbsp;&nbsp;All </option>
-                    <option value="completado">&nbsp;&nbsp;Done</option>
                     <option value="pendiente">Pending</option>
                     <option value="prioridad">Priority </option>
                     <option value="berto">Berto's </option>
                     <option value="berta">Berta's</option>
+                    <option value="completado">&nbsp;&nbsp;Done</option>
                 </select>
 
             </div>
@@ -21,18 +21,13 @@
               <!-- <button @click="ordenar('prioridad')">Por Color</button> -->
                 <h1>What we need to get done:</h1>
                 <ul>
-                    <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado, withpriority: tarea.prioridad}">
+                    <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
                         <span contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
                         <div class="cards__settings">
                             <span class="cards__settings__completed">
                                 <i @click="completarTarea(tarea)" class="fa fa-check" title="Completed"></i>
                             </span>
-                            <span class="cards__settings__user" v-if="tarea.usuario == 'berto'" title="Berto">
-                                &#x1F42F;
-                            </span>
-                            <span class="cards__settings__user" v-if="tarea.usuario == 'berta'" title="Berta">
-                                &#x1F437;
-                            </span>
+
                             <span class="cards__settings__priority">
                                 <i @click="ponerPrioridad(tarea)" class="fa fa-bolt" title="Priority task"></i>
                             </span>
@@ -84,6 +79,7 @@
                 <i class="fa fa-envelope-open-o"></i> Contact me!</a>
         </footer>
     </div>
+    </div>
 </template>
 
 <script>
@@ -120,7 +116,7 @@ export default {
                 completado: false,
                 usuario: ''
             },
-            animal: "All"
+            animal: "pendiente"
         }
     },
     methods: {
@@ -175,7 +171,7 @@ export default {
                 return this.tareas;
             }
             else if (this.animal == 'prioridad') {
-                return this.tareas.filter((tarea) => tarea.prioridad);
+                return this.tareas.filter((tarea) => tarea.prioridad && tarea.completado == false);
             }
             else if (this.animal == 'completado') {
                 return this.tareas.filter((tarea) => tarea.completado);
@@ -183,18 +179,22 @@ export default {
             else if (this.animal == 'pendiente') {
                 return this.tareas.filter((tarea) => tarea.completado == false);
             }
-            else {
-                return this.tareas.filter((tarea) => tarea.usuario == this.animal);
+            else if (this.animal == 'berto'){
+                return this.tareas.filter((tarea) => tarea.usuario == 'berto' && tarea.completado == false);
             }
-
-
+            else if (this.animal == 'berta'){
+                return this.tareas.filter((tarea) => tarea.usuario == 'berta' && tarea.completado == false);
+            }
         }
     }
+
+
 }
 
 </script>
 <style lang="scss" scoped>
 @import '../scss/main.scss';
 </style>
+
 
 
