@@ -19,13 +19,16 @@
             flex-basis: 33%;
             border-radius: 10px;
             padding: 1.3em;
-            background-color: rgba(256, 256, 256, 0.4);
+            // background-color: rgba(256, 256, 256, 0.4);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
             margin: 2em 10px 0 10px;
             flex: 1 1 30%;
+            display: flex;
+            flex-direction: column;
             >span {
                 font-weight: bold;
                 font-size: 18px;
+                margin-bottom: 1em;
                 &:focus {
                     outline: $main dashed thin;
                 }
@@ -41,7 +44,8 @@
         justify-content: flex-end;
         align-items: center;
         width: 100%;
-        margin-top: 1em;
+        margin-top: auto;
+        font-size: 18px;
         &__completed {
             &:hover {
                 color: $main;
@@ -101,14 +105,6 @@
 }
 
 //States - Priority and completado
-.withpriority {
-    background-color: RGBA(252, 192, 30, 0.4) !important;
-    .cards__settings__priority {
-        color: $lightning;
-        opacity: 1;
-    }
-}
-
 .completado {
     background-color: rgba(104, 173, 139, 0.4) !important;
     >span {
@@ -118,6 +114,54 @@
     transition: 0.3s;
     span.cards__settings__completed {
         color: $main;
+        opacity: 1;
+    }
+}
+
+.berta {
+    background-size: cover;
+    background-position: center center;
+    background-color: rgba(121, 7, 245, 0.1);
+    position: relative;
+    &:after {
+        content: "";
+        background-image: url('https://emojipedia-us.s3.amazonaws.com/thumbs/160/apple/96/woman_emoji-modifier-fitzpatrick-type-1-2_1f469-1f3fb_1f3fb.png');
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+        background-position: left top;
+    }
+}
+
+.berto {
+    @extend .berta;
+    background-color: rgba(255, 165, 0, 0.3);
+    &:after {
+        content: "";
+        background-image: url('https://emojipedia-us.s3.amazonaws.com/thumbs/160/apple/96/lion-face_1f981.png');
+        background-position: left -30%;
+        ;
+    }
+}
+
+.berta.withpriority {
+    background-color: rgba(121, 7, 245, 0.4);
+    .cards__settings__priority {
+        color: $lightning;
+        opacity: 1;
+    }
+}
+
+.berto.withpriority {
+    background-color: rgba(255, 165, 0, 0.4);
+    transition: all 0.5s ease;
+    .cards__settings__priority {
+        color: $lightning;
         opacity: 1;
     }
 }

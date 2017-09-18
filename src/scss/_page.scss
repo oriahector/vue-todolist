@@ -2,13 +2,22 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url(https://source.unsplash.com/user/oria_hector);
+    background-size: cover;
+    background-position: center center;
     color: $gray;
     font-size: 16px;
     width: 100%;
+}
+
+.overlay {
+    display: flex;
+    text-align: left;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 main {
@@ -17,6 +26,7 @@ main {
     width: 100%;
     align-items: center;
     min-height: 80vh;
+    z-index: 1;
 }
 
 h1 {
@@ -57,6 +67,10 @@ i {
 }
 
 @media (max-width: 650px) {
+    #app {
+        background-image: none;
+        background: $main;
+    }
     main {
         padding: 0 1em;
     }
