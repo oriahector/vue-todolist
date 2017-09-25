@@ -40,13 +40,25 @@
         }
     }
     &__settings {
+        opacity: 0;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         width: 100%;
         margin-top: auto;
         font-size: 18px;
+        &:hover {
+            opacity: 1;
+        }
         &__completed {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2em;
+            width: 30px;
+            height: 30px;
+            background: rgba(104, 173, 139, 0.5);
+            border-radius: 20px;
             &:hover {
                 color: $main;
             }
@@ -55,6 +67,13 @@
             padding-right: 5px;
         }
         &__priority {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: rgba(104, 173, 139, 0.5);
+            border-radius: 20px;
             opacity: 0.5;
             color: $gray;
             &:hover {
@@ -62,6 +81,15 @@
             }
         }
         &__url {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: blue;
+            border-radius: 20px;
+            opacity: 0.5;
+            color: $gray;
             padding: 0;
             color: $white;
             margin-right: 10px;
@@ -71,6 +99,14 @@
             }
         }
         &__trash {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2em;
+            width: 30px;
+            height: 30px;
+            background: rgba(175, 17, 28, 0.5);
+            border-radius: 20px;
             &:hover {
                 color: $trash;
             }
@@ -91,6 +127,9 @@
 @media (max-width: 750px) {
     .cards {
         width: 90%;
+        &__settings {
+            opacity: 1;
+        }
         ul {
             li {
                 flex-basis: 100%;
@@ -152,6 +191,7 @@
 .berta.withpriority {
     background-color: rgba(121, 7, 245, 0.4);
     .cards__settings__priority {
+        background: rgba(252, 191, 30, 0.5);
         color: $lightning;
         opacity: 1;
     }
@@ -161,6 +201,7 @@
     background-color: rgba(255, 165, 0, 0.4);
     transition: all 0.5s ease;
     .cards__settings__priority {
+        background: rgba(252, 191, 30, 0.5);
         color: $lightning;
         opacity: 1;
     }
