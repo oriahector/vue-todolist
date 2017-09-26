@@ -17,7 +17,7 @@
         flex-wrap: wrap;
         li {
             flex-basis: 33%;
-            border-radius: 10px;
+            border-radius: 7px;
             padding: 1.3em;
             // background-color: rgba(256, 256, 256, 0.4);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -49,6 +49,19 @@
         font-size: 18px;
         &:hover {
             opacity: 1;
+        }
+        &__show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            margin-right: auto;
+            background: rgba(104, 173, 139, 0.5);
+            border-radius: 20px;
+            &:hover {
+                color: $main;
+            }
         }
         &__completed {
             display: flex;
@@ -126,17 +139,21 @@
 
 @media (max-width: 750px) {
     .cards {
-        width: 90%;
+        width: 100%;
         &__settings {
             opacity: 1;
         }
+        h1 {
+            font-size: 1.2em;
+        }
         ul {
+            padding: 0 0.5em;
             li {
                 flex-basis: 100%;
-                margin: 1.2em 0 0 0;
+                margin: 0.7em 0 0 0;
                 padding: 0.9em;
                 span {
-                    font-size: 14px;
+                    font-size: 1em;
                 }
             }
         }
