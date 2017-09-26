@@ -71,7 +71,10 @@ i {
         background-image: none;
         background: $main;
     }
-    main {
-        padding: 0 1em;
+    h2,
+    select,
+    label,
+    a {
+        font-size: 0.9em;
     }
 }
