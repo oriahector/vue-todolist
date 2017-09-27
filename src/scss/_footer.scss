@@ -1,20 +1,33 @@
 .footer {
     width: 100%;
-    justify-content: flex-end;
     align-items: center;
     display: flex;
-    padding: 5em 1em 0 1.4em;
+    padding: 5em 1em 1em 1.4em;
     flex-wrap: wrap;
-    &__copyright {
-        margin: 0 2em 2em 0;
-        i:first-child {
-            padding-right: 1px;
+    &__powered {
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        p {
+            padding: 0 5px;
+        }
+    }
+    &__contact {
+        &__copyright {
+            margin: 0 2em 2em 0;
+            i {
+                padding-right: 1px;
+                color: $main;
+            }
         }
     }
 }
 
 @media (max-width: 650px) {
     .footer {
+        &__powered {
+            display: none;
+        }
         &__copyright {
             font-size: 12px;
             i:first-child {
