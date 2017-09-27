@@ -28,7 +28,7 @@
             >span {
                 font-weight: bold;
                 font-size: 18px;
-                margin-bottom: 1em;
+                padding: 1.3em;
                 &:focus {
                     outline: $main dashed thin;
                 }
@@ -67,7 +67,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: 2em;
             width: 30px;
             height: 30px;
             background: rgba(104, 173, 139, 0.5);
@@ -80,46 +79,24 @@
             padding-right: 5px;
         }
         &__priority {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
+            @extend .cards__settings__completed;
             background: rgba(104, 173, 139, 0.5);
-            border-radius: 20px;
-            opacity: 0.5;
-            color: $gray;
             &:hover {
                 color: $lightning;
             }
         }
         &__url {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            background: blue;
-            border-radius: 20px;
-            opacity: 0.5;
-            color: $gray;
-            padding: 0;
-            color: $white;
-            margin-right: 10px;
+            @extend .cards__settings__completed;
+            background: rgba(24, 125, 242, 0.5);
             &:hover {
                 color: $url;
                 transition: 0s;
             }
         }
         &__trash {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 2em;
-            width: 30px;
-            height: 30px;
+            @extend .cards__settings__completed;
             background: rgba(175, 17, 28, 0.5);
-            border-radius: 20px;
+            margin-left: 2em;
             &:hover {
                 color: $trash;
             }
@@ -156,6 +133,9 @@
                     font-size: 1em;
                 }
             }
+        }
+        &__settings {
+            padding: 1.2em;
         }
     }
 }
