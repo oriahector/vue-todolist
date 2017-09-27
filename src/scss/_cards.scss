@@ -17,7 +17,13 @@
         flex-wrap: wrap;
         li {
             flex-basis: 33%;
+<<<<<<< HEAD
             border-radius: 10px;
+=======
+            border-radius: 7px;
+            padding: 1.3em;
+            // background-color: rgba(256, 256, 256, 0.4);
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
             margin: 2em 10px 0 10px;
             flex: 1 1 30%;
@@ -45,6 +51,7 @@
         width: 100%;
         margin-top: auto;
         font-size: 18px;
+<<<<<<< HEAD
         padding: 1.3em;
         top: -100px;
         background-image: linear-gradient(rgba(104, 173, 139, 0.5), rgba(104, 173, 139, 0.5));
@@ -56,11 +63,32 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             background-size: 100% 100%;
+=======
+        &:hover {
+            opacity: 1;
+        }
+        &__show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            margin-right: auto;
+            background: rgba(104, 173, 139, 0.5);
+            border-radius: 20px;
+            &:hover {
+                color: $main;
+            }
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
         }
         &__completed {
             display: flex;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
+=======
+            margin-left: 2em;
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
             width: 30px;
             height: 30px;
             background: rgba(104, 173, 139, 0.5);
@@ -73,24 +101,62 @@
             padding-right: 5px;
         }
         &__priority {
+<<<<<<< HEAD
             @extend .cards__settings__completed;
             background: rgba(104, 173, 139, 0.5);
+=======
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: rgba(104, 173, 139, 0.5);
+            border-radius: 20px;
+            opacity: 0.5;
+            color: $gray;
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
             &:hover {
                 color: $lightning;
             }
         }
         &__url {
+<<<<<<< HEAD
             @extend .cards__settings__completed;
             background: rgba(24, 125, 242, 0.5);
+=======
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: blue;
+            border-radius: 20px;
+            opacity: 0.5;
+            color: $gray;
+            padding: 0;
+            color: $white;
+            margin-right: 10px;
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
             &:hover {
                 color: $url;
                 transition: 0s;
             }
         }
         &__trash {
+<<<<<<< HEAD
             @extend .cards__settings__completed;
             background: rgba(175, 17, 28, 0.5);
             margin-left: 2em;
+=======
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2em;
+            width: 30px;
+            height: 30px;
+            background: rgba(175, 17, 28, 0.5);
+            border-radius: 20px;
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
             &:hover {
                 color: $trash;
             }
@@ -110,15 +176,31 @@
 
 @media (max-width: 750px) {
     .cards {
+<<<<<<< HEAD
         width: 90%;
         &__settings {
             opacity: 1;
         }
+=======
+        width: 100%;
+        &__settings {
+            opacity: 1;
+        }
+        h1 {
+            font-size: 1.2em;
+        }
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
         ul {
+            padding: 0 0.5em;
             li {
                 flex-basis: 100%;
+<<<<<<< HEAD
+=======
+                margin: 0.7em 0 0 0;
+                padding: 0.9em;
+>>>>>>> d37680902261e05f219dacec120b3227957694ef
                 span {
-                    font-size: 14px;
+                    font-size: 1em;
                 }
             }
         }

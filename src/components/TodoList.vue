@@ -24,6 +24,9 @@
                     <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
                         <span contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
                         <div class="cards__settings">
+                          <span class="cards__settings__show">
+                                <i class="fa fa-plus" title="Completed"></i>
+                            </span>
                             <span class="cards__settings__completed">
                                 <i @click="completarTarea(tarea)" class="fa fa-check" title="Completed"></i>
                             </span>
