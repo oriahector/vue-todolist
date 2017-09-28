@@ -23,10 +23,11 @@
                 <ul>
                     <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
                         <span contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
-                        <div class="cards__settings">
-                          <span class="cards__settings__show">
+                         <span v-on:click="mostrar = !mostrar" class="cards__show">
                                 <i class="fa fa-plus" title="Completed"></i>
                             </span>
+                             <transition name="aparecer" appear>
+                        <div v-if="mostrar" class="cards__settings">
                             <span class="cards__settings__completed">
                                 <i @click="completarTarea(tarea)" class="fa fa-check" title="Completed"></i>
                             </span>
@@ -41,6 +42,7 @@
                                 <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o" title="Remove"></i>
                             </span>
                         </div>
+                         </transition>
                     </li>
                 </ul>
             </div>
@@ -127,8 +129,13 @@ export default {
                 completado: false,
                 usuario: ''
             },
-            animal: "pendiente"
+            animal: "pendiente",
+             mostrar: false
         }
+
+
+
+
     },
     methods: {
         agregarTarea: function () {
