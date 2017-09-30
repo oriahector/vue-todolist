@@ -55,7 +55,6 @@
         align-items: center;
         border-top: 1px solid rgba(256, 256, 256, 0.2);
         padding: 1em;
-        ;
         font-size: 18px;
         margin-left: auto;
         transition: display 0.4s ease-in;
@@ -156,7 +155,7 @@
 }
 
 .card.berta {
-    background-color: rgba(240, 120, 120, 0.2);
+    background-color: rgba(240, 120, 120, 0.1);
     position: relative;
     &:after {
         content: "";
@@ -174,27 +173,52 @@
 }
 
 .card.berto {
-    @extend .berta;
-    background-color: rgba(132, 189, 0, 0.2);
+    background-color: rgba(132, 189, 0, 0.1);
+    position: relative;
     &:after {
         content: "";
         background-image: url('../assets/berto.jpg');
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
         background-position: center 62%;
     }
 }
 
 .card {
-    @extend .berta;
     background-color: rgba(256, 256, 256, 0.2);
+    position: relative;
     &:after {
         content: "";
         background-image: url('../assets/both.jpg');
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
         background-position: center 38%;
     }
 }
 
+.card.withpriority {
+    background-color: rgba(256, 256, 256, 0);
+    .cards__settings__priority {
+        background: rgba(252, 191, 30, 0.5);
+        color: $lightning;
+        opacity: 1;
+    }
+}
+
 .berta.withpriority {
-    background-color: rgba(240, 120, 120, 0.6);
+    background-color: rgba(240, 120, 120, 0.4);
     .cards__settings__priority {
         background: rgba(252, 191, 30, 0.5);
         color: $lightning;
@@ -203,17 +227,8 @@
 }
 
 .berto.withpriority {
-    background-color: rgba(132, 189, 0, 0.6);
+    background-color: rgba(132, 189, 0, 0.4);
     transition: all 0.5s ease;
-    .cards__settings__priority {
-        background: rgba(252, 191, 30, 0.5);
-        color: $lightning;
-        opacity: 1;
-    }
-}
-
-.card.withpriority {
-    background-color: rgba(256, 256, 256, 0);
     .cards__settings__priority {
         background: rgba(252, 191, 30, 0.5);
         color: $lightning;
