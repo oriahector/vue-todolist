@@ -138,7 +138,7 @@ input {
     width: 1.25em;
     height: 1.25em;
     border: 2px solid $gray;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 
@@ -204,7 +204,7 @@ label:hover:before {
 
 //custom
 .input__label {
-    font-size: 16px;
+    font-size: 0.9em;
 }
 
 .input__field {
@@ -217,13 +217,13 @@ label:hover:before {
     border: none;
     display: block;
     padding: 15px 0px;
-    border-radius: 10px;
+    border-radius: 4px;
     margin-bottom: 2em;
     border: 1px solid $gray;
     cursor: pointer;
     width: 100%;
+    font-size: 0.9em;
     color: $white;
-    font-size: 16px;
     &:focus {
         outline: none;
     }

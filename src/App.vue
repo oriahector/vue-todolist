@@ -6,6 +6,7 @@
 
 <script>
 import todo from './components/TodoList.vue';
+
 export default {
     components: {todo },
     data() {

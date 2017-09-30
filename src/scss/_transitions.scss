@@ -1,0 +1,17 @@
+/* Transition */
+
+.aparecer-enter {
+    opacity: 0;
+}
+
+.aparecer-enter-active {
+    transition: opacity 1s;
+}
+
+.aparecer-leave-to {
+    opacity: 0;
+}
+
+.aparecer-leave-active {
+    transition: opacity 1s;
+}

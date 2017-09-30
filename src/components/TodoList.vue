@@ -3,7 +3,7 @@
       <div class="overlay">
         <div class="header">
             <div class="form__wrapper__user">
-                <label>Filter by:</label>
+                <!-- <label>Filter by:</label> -->
                 <select v-model="animal">
                     <option disabled value>Filter</option>
                     <option value="pendiente">Pending</option>
@@ -14,6 +14,7 @@
                 </select>
 
             </div>
+                <weather></weather>
             <h2>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h2>
         </div>
         <main>
@@ -21,16 +22,16 @@
               <!-- <button @click="ordenar('prioridad')">Por Color</button> -->
                 <h1>What we need to get done:</h1>
                 <ul>
-                    <li v-for="tarea in tareasFiltradas" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
+                    <li v-for="tarea in tareasFiltradas" class="card" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
                         <span contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
-                        <div class="cards__settings">
-                          <span class="cards__settings__show">
-                                <i class="fa fa-plus" title="Completed"></i>
+                         <span @click="mostrarSettings(tarea)" class="cards__show">
+                                <i class="fa fa-caret-down" title="Completed"></i>
                             </span>
+
+                        <div :class="{mostrarsettings: tarea.mostrar}" class="cards__settings">
                             <span class="cards__settings__completed">
                                 <i @click="completarTarea(tarea)" class="fa fa-check" title="Completed"></i>
                             </span>
-
                             <span class="cards__settings__priority">
                                 <i @click="ponerPrioridad(tarea)" class="fa fa-bolt" title="Priority task"></i>
                             </span>
@@ -41,6 +42,7 @@
                                 <i v-on:click="borrarTarea(tarea)" class="fa fa-trash-o" title="Remove"></i>
                             </span>
                         </div>
+
                     </li>
                 </ul>
             </div>
@@ -68,7 +70,8 @@
                         <select v-model="nuevaTarea.usuario">
                             <option disabled value>&nbsp;&nbsp;&nbsp;Who?</option>
                             <option value="berto" selected>&#x1F42F; Berto </option>
-                            <option value="berta">&#x1F437; Berta</option>
+                            <option value="berta">&#x1F646; Berta</option>
+
                         </select>
                     </div>
                 </div>
@@ -94,10 +97,9 @@
 </template>
 
 <script>
-
 import Firebase from 'firebase'
 import toastr from 'toastr'
-
+import weather from './../components/Weather.vue';
 let config = {
     apiKey: "AIzaSyD_hTRE79wSgCjbhSczPaGF-Er2a7Eql5I",
     authDomain: "hectors-todo-list.firebaseapp.com",
@@ -106,15 +108,12 @@ let config = {
     storageBucket: "hectors-todo-list.appspot.com",
     messagingSenderId: "240088787083"
 }
-
 let app = Firebase.initializeApp(config);
 let db = app.database();
-
 let tareasRef = db.ref('tareas');
-
-
 export default {
-    name: 'app',
+     components: {weather },
+    name: 'todo',
     firebase: {
         tareas: tareasRef
     },
@@ -125,9 +124,11 @@ export default {
                 url: '',
                 prioridad: false,
                 completado: false,
+                mostrar: false,
                 usuario: ''
             },
-            animal: "pendiente"
+            animal: "pendiente",
+
         }
     },
     methods: {
@@ -137,6 +138,7 @@ export default {
             this.nuevaTarea.url = '';
             this.nuevaTarea.completado = false;
             this.nuevaTarea.prioridad = false;
+            this.nuevaTarea.mostrar = false;
             this.nuevaTarea.usuario = '';
         },
         borrarTarea: function (tarea) {
@@ -149,10 +151,12 @@ export default {
         editarTarea: function (event, tarea) {
             tareasRef.child(tarea['.key']).child('titulo').set(tarea.titulo = event.target.innerHTML);
         },
-
         ponerPrioridad: function (tarea) {
             tareasRef.child(tarea['.key']).child('prioridad').set(tarea.prioridad = !tarea.prioridad);
         },
+        mostrarSettings: function (tarea) {
+            tareasRef.child(tarea['.key']).child('mostrar').set(tarea.mostrar = !tarea.mostrar);
+          },
 
         //under construction
         ordenar(key) {
@@ -166,7 +170,6 @@ export default {
         tareasCompletadas() {
             return this.tareas.filter((tarea) => tarea.completado);
         },
-
         tareasConPrioridad() {
             return this.tareas.filter((tarea) => tarea.prioridad);
         },
@@ -176,7 +179,6 @@ export default {
         tareasBerta() {
             return this.tareas.filter((tarea) => tarea.usuario == 'berta');
         },
-
         tareasFiltradas() {
             if (this.animal == 'All') {
                 return this.tareas;
@@ -198,14 +200,8 @@ export default {
             }
         }
     }
-
-
 }
-
 </script>
 <style lang="scss" scoped>
 @import '../scss/main.scss';
 </style>
-
-
-
