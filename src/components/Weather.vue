@@ -2,7 +2,7 @@
   <div class="weather">
     <img class="icon" width="20px" src="../assets/thermometer.png">
     <p class="weather__p" v-for="persona in personas"> {{persona.temp}}</p>
-    <p> ° </p>
+    <p> °</p>
     </div>
 </template>
 
