@@ -2,12 +2,15 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-image: url(https://source.unsplash.com/user/oria_hector);
+    // background-color: rgba (100, 200, 300, 0.1);
+    background-image: url("https://images.unsplash.com/photo-1501597301489-8b75b675ba0a?dpr=1&auto=compress,format&fit=crop&w=1949&h=&q=80&cs=tinysrgb&crop=");
     background-size: cover;
     background-position: center center;
     color: $gray;
     font-size: 16px;
     width: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .overlay {
@@ -17,7 +20,7 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 main {
