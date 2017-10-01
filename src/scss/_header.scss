@@ -16,5 +16,8 @@
 @media (max-width: 650px) {
     .header {
         padding: 0.5em 0.4em 0.5em 0.4em;
+        position: fixed;
+        z-index: 3;
+        background: rgba(32, 51, 41, 1);
     }
 }
