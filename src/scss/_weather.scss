@@ -1,13 +1,18 @@
 .weather {
-    font-size: 1em;
+    font-size: 1.4em;
     align-items: center;
     display: flex;
     font-weight: bold;
-    img {
-        width: 20px;
+    &__img {
+        width: 30px;
     }
 }
 
-.icon {
-    width: 20px;
+@media (max-width: 650px) {
+    .weather {
+        font-size: 1em;
+        &__img {
+            width: 20px;
+        }
+    }
 }
