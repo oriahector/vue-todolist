@@ -8,9 +8,9 @@
                     <option disabled value>Filter</option>
                     <option value="pendiente">Pending</option>
                     <option value="prioridad">Priority </option>
-                    <option value="berto">Héctor's </option>
-                    <option value="berta">Lola's</option>
-                    <option value="completado">Done</option>
+                    <option value="berto">Berto's </option>
+                    <option value="berta">Berta's</option>
+                    <option value="completado">&nbsp;&nbsp;Done</option>
                 </select>
 
             </div>
@@ -69,7 +69,7 @@
                     <div class="form__wrapper__user">
                         <select v-model="nuevaTarea.usuario">
                             <option disabled value>Who?</option>
-                            <option value="berto" selected>Héctor</option>
+                            <option value="berto" selected>Héctor </option>
                             <option value="berta">Lola</option>
 
                         </select>

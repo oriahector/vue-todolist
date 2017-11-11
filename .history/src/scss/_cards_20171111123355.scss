@@ -134,7 +134,7 @@
                 >span:first-child {
                     font-size: 0.9em;
                 }
-                &:first-child {
+                &::first-child {
                     margin-top: 0;
                 }
             }
