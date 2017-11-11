@@ -8,19 +8,19 @@
                     <option disabled value>Filter</option>
                     <option value="pendiente">Pending</option>
                     <option value="prioridad">Priority </option>
-                    <option value="berto">Héctor's </option>
-                    <option value="berta">Lola's</option>
-                    <option value="completado">Done</option>
+                    <option value="berto">Berto's </option>
+                    <option value="berta">Berta's</option>
+                    <option value="completado">&nbsp;&nbsp;Done</option>
                 </select>
 
             </div>
                 <weather></weather>
-            <h2>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h2>
+            <!-- <h2>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h2> -->
         </div>
         <main>
             <div class="cards">
               <!-- <button @click="ordenar('prioridad')">Por Color</button> -->
-                <!-- <h1>What we need to get done:</h1> -->
+                <h1>What we need to get done:</h1>
                 <ul>
                     <li v-for="tarea in tareasFiltradas" class="card" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
                         <span contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
@@ -68,9 +68,9 @@
                     </span>
                     <div class="form__wrapper__user">
                         <select v-model="nuevaTarea.usuario">
-                            <option disabled value>Who?</option>
-                            <option value="berto" selected>Héctor</option>
-                            <option value="berta">Lola</option>
+                            <option disabled value>&nbsp;&nbsp;&nbsp;Who?</option>
+                            <option value="berto" selected>&#x1F42F; Berto </option>
+                            <option value="berta">&#x1F646; Berta</option>
 
                         </select>
                     </div>

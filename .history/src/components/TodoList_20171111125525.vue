@@ -69,7 +69,7 @@
                     <div class="form__wrapper__user">
                         <select v-model="nuevaTarea.usuario">
                             <option disabled value>Who?</option>
-                            <option value="berto" selected>Héctor</option>
+                            <option value="berto" selected>Héct</option>
                             <option value="berta">Lola</option>
 
                         </select>

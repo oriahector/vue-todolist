@@ -7,7 +7,6 @@
     z-index: 1;
     border-bottom: 1px solid rgba(256, 256, 256, 0.3);
     font-size: 0.7em;
-    z-index: 3;
     margin-bottom: 2em;
     h2 {
         font-weight: bold;
@@ -16,9 +15,9 @@
 
 @media (max-width: 650px) {
     .header {
-        padding: .5em;
+        padding: 0.5em 0.4em 0.5em 0.4em;
         position: fixed;
-        background: $header;
-        border: none;
+        z-index: 3;
+        background: rgba(32, 51, 41, 1);
     }
 }
