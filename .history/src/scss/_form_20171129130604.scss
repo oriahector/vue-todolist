@@ -41,14 +41,10 @@
 }
 
 @media (max-width: 650px) {
-    .form {
+    form {
         padding: 0 2em;
-        &__wrapper {
-            &__user {
-                select {
-                    width: 65px;
-                }
-            }
-        }
+    }
+    select {
+        width: 75px;
     }
 }

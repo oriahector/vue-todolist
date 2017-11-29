@@ -30,7 +30,7 @@
                 padding: 5px 10px;
                 border: 1px solid $gray;
                 border-radius: 4px;
-                width: 85px;
+                width: 80px;
                 text-align-last: center;
                 &:focus {
                     outline: none;
@@ -41,14 +41,7 @@
 }
 
 @media (max-width: 650px) {
-    .form {
+    form {
         padding: 0 2em;
-        &__wrapper {
-            &__user {
-                select {
-                    width: 65px;
-                }
-            }
-        }
     }
 }
