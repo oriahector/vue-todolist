@@ -1,6 +1,6 @@
 <template>
-<div style="width:100%;">
-      <todo></todo>
+<div class="app">
+     <router-view></router-view>
 </div>
 </template>
 
@@ -52,6 +52,13 @@ body {
         width: 140px;
         border-radius: 10px;
         opacity: 0.5;
+    }
+
+    .app {
+      display: flex;
+      height: 100%;
+      width:100%;
+      justify-content: center;
     }
 
 </style>

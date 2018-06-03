@@ -1,6 +1,7 @@
 <template>
   <div class="weather">
-    <img class="icon" width="20px" src="../assets/thermometer.png">
+    <img class="icon" width="40px" :src="`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`">
+    <!-- <img class="icon" width="20px" src="../assets/thermometer.png"> -->
     <p class="weather__p"> {{ Math.round(weather.main.temp)}}° <sup>({{(weather.main.temp_max)}}/{{(weather.main.temp_min)}})</sup></p>
   </div>
 </template>

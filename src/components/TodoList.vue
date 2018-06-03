@@ -12,9 +12,9 @@
                     <option value="berta">Lola's</option>
                     <option value="completado">Done</option>
                 </select>
-
             </div>
-                <weather></weather>
+            <weather></weather>
+            <!-- <a href="#" @click="logout">logout</a> -->
             <h2>{{tareasCompletadas.length}}/{{tareas.length}} are done!</h2>
         </div>
         <main>
@@ -97,20 +97,11 @@
 </template>
 
 <script>
-import Firebase from 'firebase'
+import firebase from "firebase";
+import { tareasRef } from "../firebase";
 import toastr from 'toastr'
 import weather from './../components/Weather.vue';
-let config = {
-    apiKey: "AIzaSyD_hTRE79wSgCjbhSczPaGF-Er2a7Eql5I",
-    authDomain: "hectors-todo-list.firebaseapp.com",
-    databaseURL: "https://hectors-todo-list.firebaseio.com",
-    projectId: "hectors-todo-list",
-    storageBucket: "hectors-todo-list.appspot.com",
-    messagingSenderId: "240088787083"
-}
-let app = Firebase.initializeApp(config);
-let db = app.database();
-let tareasRef = db.ref('tareas');
+
 export default {
      components: {weather },
     name: 'todo',
@@ -157,7 +148,9 @@ export default {
         mostrarSettings: function (tarea) {
             tareasRef.child(tarea['.key']).child('mostrar').set(tarea.mostrar = !tarea.mostrar);
           },
-
+        logout() {
+          firebase.auth().signOut().then(() => this.$router.replace('login'))
+        },
         //under construction
         ordenar(key) {
                 tareasRef.orderByChild(key).on('child_added', snapshot => {
