@@ -22,8 +22,8 @@
               <!-- <button @click="ordenar('prioridad')">Por Color</button> -->
                 <!-- <h1>What we need to get done:</h1> -->
                 <ul>
-                    <li v-for="tarea in tareasFiltradas" class="card" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
-                        <span contenteditable="true" @blur="editarTarea($event, tarea)">{{ tarea.titulo }}</span>
+                    <li v-for="(tarea, index) in tareasFiltradas" :key="index" class="card" :class="{completado: tarea.completado, withpriority: tarea.prioridad, berta: tarea.usuario == 'berta', berto: tarea.usuario == 'berto'}">
+                        <span v-html="tarea.titulo" contenteditable="true" @blur="editarTarea($event, tarea)"></span>
                          <span @click="mostrarSettings(tarea)" class="cards__show">
                                 <i class="fa fa-caret-down" title="Completed"></i>
                             </span>
@@ -83,7 +83,7 @@
             <p>Powered by</p>
             <img src="../assets/vue.png" width="20px" alt="Vue">
               <p>and</p>
-            <img src="../assets/firebase.png" width="20px" alt="Vue"></p>
+            <img src="../assets/firebase.png" width="20px" alt="Vue">
           </div>
           <div class="footer__contact">
             <a class="footer__contact__copyright" href="http://hectororia.com">Made with
